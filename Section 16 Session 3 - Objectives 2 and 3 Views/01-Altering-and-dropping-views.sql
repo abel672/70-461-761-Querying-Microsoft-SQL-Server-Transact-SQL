@@ -28,7 +28,9 @@ IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.VIEWS
 	DROP VIEW dbo.ViewByDepartment;
 GO;
 
-CREATE VIEW [dbo].[ViewByDepartment] as
+-- Encripted view, be sure to save the code on a word document before creating it.
+-- Ohterwise, you will never see it anymore
+CREATE VIEW [dbo].[ViewByDepartment] WITH ENCRYPTION as
 	SELECT D.Department, T.EmployeeNumber, T.DateOfTransaction, T.Amount as TotalAmount
 	FROM tblDepartment as D
 	LEFT JOIN tblEmployee as E
