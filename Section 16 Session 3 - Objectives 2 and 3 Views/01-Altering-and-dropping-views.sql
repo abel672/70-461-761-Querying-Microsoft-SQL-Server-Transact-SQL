@@ -37,7 +37,8 @@ CREATE VIEW [dbo].[ViewByDepartment] WITH ENCRYPTION as
 	on D.Department = E.Department
 	LEFT JOIN tblTransactions as T
 	on E.EmployeeNumber = T.EmployeeNumber
-	WHERE T.EmployeeNumber BETWEEN 120 AND 139;
+	WHERE T.EmployeeNumber BETWEEN 120 AND 139
+  WITH CHECK OPTION;
 GO
 
 -- The best way to alter a view is drop it and recreate it again.
