@@ -21,17 +21,29 @@ BEGIN
     -- logic
     IF EXISTS (SELECT * FROM tblEmployee WHERE EmployeeNumber = @EmployeeNumber)
     BEGIN
-        SELECT EmployeeNumber, EmployeeFirstName, EmployeeLastName
-        FROM tblEmployee
-        WHERE EmployeeNumber = @EmployeeNumber
+        IF (@EmployeeNumber < 300)
+            BEGIN
+                SELECT EmployeeNumber, EmployeeFirstName, EmployeeLastName
+                FROM tblEmployee
+                WHERE EmployeeNumber = @EmployeeNumber
+            END
+        ELSE
+            BEGIN
+                SELECT EmployeeNumber, EmployeeFirstName, EmployeeLastName, Department
+                FROM tblEmployee
+                WHERE EmployeeNumber = @EmployeeNumber
+                SELECT * FROM tblTransactions WHERE EmployeeNumber = @EmployeeNumber
+            END
     END
+
+    -- if employeeNumber is < than 200
 END 
 
 GO
 
 -- RUN procedure
 EXECUTE NameEmployees 323;
-EXEC NameEmployees 223;
+EXEC NameEmployees 124;
 NameEmployees 4;
 
 -- Query our procedures
