@@ -1,4 +1,4 @@
--- USE [70-461];
+USE [70-461];
 
 IF OBJECT_ID('AverageBalance', 'P') IS NOT NULL
     DROP PROC AverageBalance
@@ -14,6 +14,8 @@ BEGIN
 
     SELECT @NumberOfEmployee = COUNT(DISTINCT EmployeeNumber) FROM tblEmployee
     WHERE EmployeeNumber BETWEEN @EmployeeNumberFrom AND @EmployeeNumberTo
+
+    select @EmployeeNumberFrom, @EmployeeNumberTo, @TotalAmount;
 
     -- Average
     SET @AverageBalance = @TotalAmount / @NumberOfEmployee
