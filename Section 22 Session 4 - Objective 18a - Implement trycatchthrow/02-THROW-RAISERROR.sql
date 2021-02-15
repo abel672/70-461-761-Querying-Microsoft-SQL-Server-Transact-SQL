@@ -13,6 +13,8 @@ BEGIN
 
     -- TRY CATCH
     BEGIN TRY
+        PRINT 'The employee numbers are from ' + CONVERT(varchar(10), @EmployeeNumberFrom) + 
+            ' to ' + CONVERT(varchar(10), @EmployeeNumberTo)
 
         SELECT @TotalAmount = SUM(Amount) FROM tblTransactions
         WHERE EmployeeNumber BETWEEN @EmployeeNumberFrom AND @EmployeeNumberTo
@@ -27,14 +29,17 @@ BEGIN
     END TRY
 
     BEGIN CATCH
-        SET @AverageBalance = 0
 
         IF ERROR_NUMBER() = 1834 -- @@ERROR
-            BEGIN
+            BEGIN  
+                SET @AverageBalance = 0
+                PRINT 'There are not valid employees in this range.'
                 RETURN 1834
             END
         ELSE
-            RAISERROR ('Another error thrower', 10, 1) -- severity 10 (information)
+            DECLARE @ErrorMessage as varchar(255)
+            SELECT @ErrorMessage = ERROR_MESSAGE()
+            RAISERROR (@ErrorMessage, 16, 1) -- severity 10 (information)
             -- THROW 56789, 'Unknonw error throw by my custom procedure', 1
 
         -- error messages to print
