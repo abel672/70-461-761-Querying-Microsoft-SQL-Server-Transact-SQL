@@ -1,0 +1,11 @@
+BEGIN TRAN 
+    CREATE SEQUENCE newSeq as INT
+    START WITH 1
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 999999
+    CYCLE
+    
+    CREATE SEQUENCE secondSeq as INT
+    SELECT * FROM sys.sequences
+ROLLBACK TRAN 
