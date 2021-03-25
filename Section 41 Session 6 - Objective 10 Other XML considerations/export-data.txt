@@ -1,0 +1,3 @@
+-- To export data in XML from the database, run this command:
+
+bcp [70-461].dbo.tblDepartment out mydata.out -N -T

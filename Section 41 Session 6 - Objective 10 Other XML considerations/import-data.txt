@@ -1,0 +1,3 @@
+To import data from a xml file into a db table, run this command:
+
+bcp [70-461].dbo.tblDepartment2 in mydata.out -N -T
