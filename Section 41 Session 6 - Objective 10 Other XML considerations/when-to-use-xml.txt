@@ -1,0 +1,5 @@
+
+-- When the Data is passed
+-- When the structure is unknown
+-- When order is important / there is a hierarchy
+-- When you are not going to use it often
