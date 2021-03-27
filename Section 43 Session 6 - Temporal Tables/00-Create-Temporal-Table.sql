@@ -9,7 +9,8 @@ CREATE TABLE tblEmployeeTemporal
     ValidFrom datetime2(2) GENERATED ALWAYS AS ROW START,
     ValidTo datetime2(2) GENERATED ALWAYS AS ROW END,
     PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo))
-    WITH (SYSTEM_VERSIONING = ON) -- tell computer to manage the updates
+                                -- You can specify the name of the History Table here
+    WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.tblEmployeeHistory)) -- tell computer to manage the updates
 
 
 INSERT INTO tblEmployeeTemporal
