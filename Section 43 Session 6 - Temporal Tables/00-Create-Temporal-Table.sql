@@ -5,9 +5,9 @@ CREATE TABLE tblEmployeeTemporal
     EmployeeLastName varchar(50) NOT NULL,
     EmployeeGovermentID char(10) NOT NULL,
     DateOfBirth date NOT NULL, Department varchar(19) NULL,
-    -- This last three must always be together
-    ValidFrom datetime2(2) GENERATED ALWAYS AS ROW START,
-    ValidTo datetime2(2) GENERATED ALWAYS AS ROW END,
+    -- This last three must always be together: HIDDEN hides the columns from the table
+    ValidFrom datetime2(2) GENERATED ALWAYS AS ROW START HIDDEN,
+    ValidTo datetime2(2) GENERATED ALWAYS AS ROW END HIDDEN,
     PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo))
                                 -- You can specify the name of the History Table here
     WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.tblEmployeeHistory)) -- tell computer to manage the updates
