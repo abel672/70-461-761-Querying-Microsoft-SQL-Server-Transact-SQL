@@ -5,8 +5,8 @@
 -- LEFT JOIN
 -- WHERE NOT NULL helps to find no matching rows in the second table (tblTransactions)
 SELECT ENumber, EmployeeFirstName, EmployeeLastName
+-- we have a query that works, we surrounded to create a new query, without modyfing it
 FROM (
--- we have a query that works, we surrounded to create a new query, without modying it
 SELECT E.EmployeeNumber as ENumber, E.EmployeeFirstName, E.EmployeeLastName, T.EmployeeNumber as TNumber,
 	SUM(T.Amount) as TotalAmount
 FROM tblEmployee as E
@@ -22,8 +22,8 @@ ORDER BY ENumber, TNumber, EmployeeFirstName, EmployeeLastName;
 -- RIGHT JOIN
 -- WHERE NOT NULL helps to find no matching rows in the first table (tblEmployee)
 SELECT *
+-- we have a query that works, we surrounded to create a new query, without modyfing it
 FROM (
--- we have a query that works, we surrounded to create a new query, without modying it
 SELECT E.EmployeeNumber as ENumber, E.EmployeeFirstName, E.EmployeeLastName, T.EmployeeNumber as TNumber,
 	SUM(T.Amount) as TotalAmount
 FROM tblEmployee as E

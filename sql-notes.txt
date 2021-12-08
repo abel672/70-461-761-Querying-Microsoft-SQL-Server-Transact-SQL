@@ -1,0 +1,27 @@
+/**
+
+	Bigint
+	Int - up to 2,000,000,000
+	Tinyint - 0-255
+	Smallint - -32767 to 32768
+
+	BITS
+*/
+
+/**
+	String types
+
+		(English)
+		char - ASCII   (fix string size)
+		varchar - ASCII (dynamic string size)
+
+		(All languages)
+		nchar - UNICODE (fix string size with symbols)
+		mvarchar - UNICODE (dynamic string size with symbols)
+*/
+
+ACID:
+    Atomic: Single unit of work
+    Consistant: Data must be left in a consistant state
+    Isolated: Concurrent transactions are isolated from each other
+    Durable: Effects are permanent

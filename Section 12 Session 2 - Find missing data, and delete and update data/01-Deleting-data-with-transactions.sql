@@ -31,7 +31,6 @@ BEGIN TRANSACTION;
 	(
 		SELECT TNumber
 		FROM (
-			-- we have a query that works, we surrounded to create a new query, without modying it
 			SELECT E.EmployeeNumber as ENumber, E.EmployeeFirstName, E.EmployeeLastName, T.EmployeeNumber as TNumber,
 				SUM(T.Amount) as TotalAmount
 			FROM tblEmployee as E
